@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 3300;
-dotenv.config({path:'./config/.env'});
+dotenv.config();
 
 //mongodb connection
 connectDB()
