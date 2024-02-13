@@ -1,9 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+
 const Login = () => {
-
-
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
@@ -17,7 +16,6 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!credentials.email || !credentials.password) {
       setErrorMessage('All fields are required');
       return;
@@ -28,8 +26,8 @@ const Login = () => {
 
       // Check if the server response indicates success
       if (response.data.success) {
-        window.location = '/userdashboard'
         setErrorMessage(null);
+        window.location = '/userdashboard'
       } else {
         // Display error message from the server
         setErrorMessage(response.data.message);
@@ -80,6 +78,7 @@ const Login = () => {
               value={credentials.password}
               onChange={handleChange}
             />
+            {/* <EyeIcon /> */}
           </div>
           <a
             href="#"

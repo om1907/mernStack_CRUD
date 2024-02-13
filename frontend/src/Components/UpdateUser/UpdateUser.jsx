@@ -94,7 +94,7 @@ const UpdateUser = ({ userData, onClose }) => {
             </div>
 
             <div className="flex justify-center my-4">
-              <button type="submit" className="px-4 py-2 bg-yellow-400 rounded-sm" onClick={() => toast.update('user updated successfully')} >
+              <button type="submit" className="px-4 py-2 bg-yellow-400 rounded-sm" onClick={()=>onClose} >
                 Update User
               </button>
             </div>

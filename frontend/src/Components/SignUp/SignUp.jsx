@@ -1,11 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
 
-    // const [errorrMessage,setErrorrMessage]=useState();
+    const [errorrMessage,setErrorrMessage]=useState();
     const [showAlert, setShowAlert] = useState(false);
 
     const [signupCredentials, setSignupCredentials] = useState({
@@ -23,7 +23,7 @@ const SignUp = () => {
 
         // Check if passwords match
         if (signupCredentials.password !== signupCredentials.confirmPassword) {
-            // setErrorrMessage('Password do not match');
+            setErrorrMessage('Password do not match');
             console.error('Passwords do not match');
             return;
         }
@@ -33,11 +33,11 @@ const SignUp = () => {
             const response = await axios.post('http://localhost:3300/api/usersignup',signupCredentials);
             if (response.status === 200) {
                 setShowAlert('true');
+                setErrorrMessage(null);
                 setTimeout(() => {
                     window.location = '/'
-                }, 5000);
+                }, 1000);
                 return
-                // setErrorrMessage(null);
             }
             console.log(response.data);
         } catch (error) {
@@ -131,7 +131,7 @@ const SignUp = () => {
                         {/* Sign up Successfull🎉🎉🎉.Redirecting to SignIn page...  */}
                         {/* {toast.success('Sign up Successfull🎉🎉🎉.Redirecting to SignIn page... ')} */}
                         </div>}
-                    {/* {errorrMessage&&<div>{errorrMessage}</div>} */}
+                    {errorrMessage&&<div>{errorrMessage}</div>}
                 </form>
                 <p className="mt-8 text-xs font-light text-center text-gray-500">
                     {" "}

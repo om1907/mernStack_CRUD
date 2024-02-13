@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 // import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import ReadUser from './ReadUser';
-import UpdateUser from './UpdateUser';
+import ReadUser from '../ReadUser/ReadUser';
+import UpdateUser from '../UpdateUser/UpdateUser';
 import { Link } from 'react-router-dom';
 // import { NavLink,Link } from 'react-router-dom';
 
