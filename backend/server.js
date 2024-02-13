@@ -5,15 +5,13 @@ const User = require('./models/UserModels')
 const UserLogin = require('./models/userLoginModel')
 const cors = require('cors');
 const dotenv = require('dotenv');
-// dotenv.config({ path: './config/.env' });
-
-
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 3300;
+dotenv.config({path:'./config/.env'});
 
 //mongodb connection
 connectDB()
