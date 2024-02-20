@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import ForgotPassword from '../ForgotPassword/ForgotPassword';
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -9,6 +10,7 @@ const Login = () => {
   });
 
   const [errorMessage, setErrorMessage] = useState(null);
+  const [showForgotPasswordModel,setForgotPasswordModel]=useState(false);
 
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -80,12 +82,16 @@ const Login = () => {
             />
             {/* <EyeIcon /> */}
           </div>
-          <a
+          {/* <a
             href="#"
             className="text-xs text-gray-500 hover:underline"
           >
             Forget Password?
-          </a>
+          </a> */}
+          <button onClick={()=>setForgotPasswordModel(true)} className='text-xs text-gray-500 hover:underline'>
+          Forgot Password
+          </button>
+          {showForgotPasswordModel&&<ForgotPassword />}
           <div className="mt-6">
             <button type='submit' className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-yellow-400 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-yellow-400" >
               Login

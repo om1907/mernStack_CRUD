@@ -1,11 +1,13 @@
 const UserLogin=require('../models/userLoginModel');
-
+const jwt = require('jsonwebtoken');
 
 exports.userLogin=async(req,res)=>{
     const { email, password } = req.body;
     const user = await UserLogin.findOne({ email, password });
     if (user) {
-        res.json({ success: true, message: 'Login successful!' });
+        // Generate a JWT token
+        const token = jwt.sign({ userId: user._id, email: user.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        res.json({ success: true, message: 'Login successful!', token });
     } else {
         res.status(401).json({ success: false, message: 'Invalid credentials' });
     }

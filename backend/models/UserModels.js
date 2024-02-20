@@ -1,6 +1,13 @@
 const mongoose = require('mongoose');
 const validator=require('validator');
 
+const fileSchema = new mongoose.Schema({
+    filename: { type: String, required: true },
+    path: { type: String, required: true },
+    size: { type: Number, required: true },
+    uuid: { type: String, required: true },
+});
+
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -18,9 +25,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please Enter Your Password"],
         minLength: [8, "Password should be greater than 8 characters"],
-        select: false,
-    }
-})
+        // select: false,
+    },
+    profilePic:fileSchema
+},{timestamps:true})
 
 //mongodb collection for above schema 
 module.exports = mongoose.model('User', userSchema);

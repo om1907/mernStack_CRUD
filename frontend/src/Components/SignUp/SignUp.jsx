@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 
 const SignUp = () => {
 
@@ -36,7 +36,7 @@ const SignUp = () => {
                 setErrorrMessage(null);
                 setTimeout(() => {
                     window.location = '/'
-                }, 1000);
+                }, 2000);
                 return
             }
             console.log(response.data);
@@ -128,7 +128,7 @@ const SignUp = () => {
                         </button>
                     </div>
                     {showAlert&&<div>
-                        {/* Sign up Successfull🎉🎉🎉.Redirecting to SignIn page...  */}
+                        Sign up Successfull🎉🎉🎉.Redirecting to SignIn page... 
                         {/* {toast.success('Sign up Successfull🎉🎉🎉.Redirecting to SignIn page... ')} */}
                         </div>}
                     {errorrMessage&&<div>{errorrMessage}</div>}

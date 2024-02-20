@@ -1,13 +1,11 @@
 import React from 'react'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { X} from 'lucide-react'
+import { Link, useParams } from 'react-router-dom';
+import { X } from 'lucide-react'
 
 
-function ReadUser({userData,onClose}) {
-
-  // const { id } = useParams();
+function ReadUser({ userData, onClose }) {
 
   const [UserData, setUserData] = useState([]);
   const fetchSingleUser = async () => {
@@ -24,7 +22,7 @@ function ReadUser({userData,onClose}) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center">
       <div className='mt-10 flex flex-col gap-3 text-white'>
-        <button onClick={onClose} className='place-self-end'><X size={30}/></button>
+        <button onClick={onClose} className='place-self-end'><X size={30} /></button>
         <div className="relative overflow-x-auto shadow">
           <table className="w-full text-lg text-center text-gray-500">
             <thead className="text-[17px] text-gray-700 uppercase bg-gray-500">
@@ -57,8 +55,8 @@ function ReadUser({userData,onClose}) {
                 >
                   {userData.name}
                 </th>
-                <td className="px-6 py-4"> {UserData.email}</td>
-                <td className="px-6 py-4">{UserData.password}</td>
+                <td className="px-6 py-4 text-gray-200">{UserData.email}</td>
+                <td className="px-6 py-4 text-gray-400">{UserData.password}</td>
               </tr>
             </tbody>
           </table>
