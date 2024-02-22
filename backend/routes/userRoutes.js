@@ -3,8 +3,6 @@ const { createUser, getAllUserData, getSingleUserData, updateUserData, deleteUse
 
 const router = express.Router();
 
-const authenticatedUser=require('../middleware/auth')
-
 router.route('/show/:uuid').get(getProfilePic) 
 
 router.route('/createuser').post(createUser);

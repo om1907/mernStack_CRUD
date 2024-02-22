@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import ReadUser from '../ReadUser/ReadUser';
 import UpdateUser from '../UpdateUser/UpdateUser';
 import { Link } from 'react-router-dom';
-import ImageViewerModal from '../Img/Img'
+import ImageViewerModal from '../ProfilePic/profilePic'
 
 function Home() {
 

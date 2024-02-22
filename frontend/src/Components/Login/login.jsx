@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import ForgotPassword from '../ForgotPassword/ForgotPassword';
 
 const Login = () => {
+
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
@@ -40,7 +41,6 @@ const Login = () => {
       setErrorMessage('Please enter valid email id and password.');
     }
   };
-
 
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
@@ -80,14 +80,8 @@ const Login = () => {
               value={credentials.password}
               onChange={handleChange}
             />
-            {/* <EyeIcon /> */}
           </div>
-          {/* <a
-            href="#"
-            className="text-xs text-gray-500 hover:underline"
-          >
-            Forget Password?
-          </a> */}
+          
           <button onClick={()=>setForgotPasswordModel(true)} className='text-xs text-gray-500 hover:underline'>
           Forgot Password
           </button>

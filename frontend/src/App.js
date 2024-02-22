@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-// import Logout from './Components/logout'
 import Home from './Components/Home/Home'
 import Login from './Components/Login/login'
 import SignUp from './Components/SignUp/SignUp';
 import { SunMoon } from 'lucide-react';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import Navbar from './Components/Navbar/Navbar';
 import ForgotPassword from './Components/ForgotPassword/ForgotPassword';
 
 function App() {
@@ -35,7 +33,6 @@ function App() {
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/userdashboard" element={<Home />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/navbar" element={<Navbar />} />
         </Routes>
       </ThemeProvider>
     </div>

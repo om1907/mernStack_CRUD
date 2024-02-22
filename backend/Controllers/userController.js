@@ -4,9 +4,7 @@ const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 
 
-
 exports.createUser = async (req, res) => {
-
     //Multer configuration
     const storage = Multer.diskStorage({
         destination: (req, file, cb) => {
@@ -18,7 +16,7 @@ exports.createUser = async (req, res) => {
         },
     })
     
-    
+
     const upload = Multer({
         storage,
         limits: { fileSize: 1000000 * 100 }
@@ -32,16 +30,18 @@ exports.createUser = async (req, res) => {
             }
 
             const { name, email, password } = req.body;
+            const {filename,path,size}=req.file;
 
             const user = new User({
                 name,
                 email,
                 password,
-                profilePic: { filename:req.file.filename, path:req.file.path, size:req.file.size,uuid:uuidv4() }, // Save file details in the user schema
+                profilePic: { filename, path, size, uuid: uuidv4() },
             });
 
             const userData = await user.save();
-            res.status(400).json({userData,file:`${process.env.APP_BASE_URL}/download/${userData.profilePic.uuid}`});
+            console.log(userData);
+            res.status(400).json({userData});
         })
     } catch (error) {
         console.error(error);
@@ -103,6 +103,7 @@ exports.getProfilePic=async (req, res) => {
             return res.status(404).json({success:'False',message:'User Not found'});
         }
         const filePath = path.join(__dirname, '..', file.profilePic.path);
+        // console.log(filePath);
         res.sendFile(filePath);
     } catch (err) {
         return res.status(500).json({success:'false',message:'Internal server error'});
